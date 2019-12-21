@@ -1,0 +1,12 @@
+- 带后台的网址收藏夹
+- 使用maven构建整个工程
+- 所有的js文件以index.js为入口文件，最终打包压缩为同目录的output.js文件
+- 打包命令，在js目录运行：
+  - webpack --mode production  index.js -o output.js  生产环境
+  - webpack --mode development  index.js -o output.js  开发环境
+
+- target打包生成目录
+- src/main/java  存放源代码
+- src/main/resources  存放配置文件
+- src/main/webapp    存放前端资源
+- 将整个项目作为maven module引入即可
