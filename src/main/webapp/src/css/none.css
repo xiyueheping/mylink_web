@@ -1,0 +1,546 @@
+/**
+  设置所有页面上隐形元素/脱离文档布局 的样式
+ */
+
+/*z-index
+   备忘录弹窗    1000
+   翻译弹窗      1000
+   天气详情弹窗  1000
+   右键标签菜单  100
+   右键网址菜单  100
+   搜索菜单      100
+   编辑网址框    1000
+   阴影           800
+   右侧滑动菜单   
+ */
+
+
+
+/*窗口宽度小于1500px时*/
+@media only screen and (max-width: 1500px) {
+    /*顶部搜索框下方隐藏菜单样式*/
+    #none_search_nav{
+        width:95px;
+        box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+        z-index:100;
+        position: absolute;
+        left: 802px;
+        top:60px;
+        display: none;
+    }
+  
+}
+/*窗口宽度小于1700px大于1500px时*/
+@media only screen and (max-width: 1700px) and  (min-width: 1500px){
+     /*顶部搜索框下方隐藏菜单样式*/
+     #none_search_nav{
+        width:95px;
+        box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+        z-index:100;
+        position: absolute;
+        left: 877px;
+        top:60px;
+        display: none;
+    }
+  
+}
+/*窗口宽度大于1700px时*/
+@media only screen and (min-width: 1700px) {
+     /*顶部搜索框下方隐藏菜单样式*/
+     #none_search_nav{
+        width:95px;
+        box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+        z-index:100;
+        position: absolute;
+        left: 977px;
+        top:60px;
+        display: none;
+    }
+  
+}
+
+
+
+
+
+
+
+
+
+/* //右侧滑动菜单样式 */
+#rightmenu{
+    position:absolute;
+    background: #fff;
+    
+    top:0px;
+    right: 0px;
+    width: 0px;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    padding-left: 25px;
+    overflow:auto;
+    box-shadow: 0 0 18px 10px rgba(113,113,113,.5);
+
+    /* border: red 1px solid; */
+}
+
+#rightmenu a{
+    color: #333;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    /* border-bottom: rgb(87, 86, 86) 1px solid; */
+    /* margin-top: 10px; */
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*设置左上角网址标题菜单样式*/
+#none_httptitle_nav{
+    list-style-type: none;
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    margin: 0;
+    padding: 0;
+    width: 110px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+#none_httptitle_nav a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    /*border: #00ec00 1px solid;*/
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    width: 110px;
+    height: 37px;
+}
+
+#none_httptitle_nav #alltitle {
+    border-radius: 5px 5px 0px 0px;
+    background-color: #555;
+    color: white;
+}
+#none_httptitle_nav #addtitle {
+  border-radius: 0px 0px 5px 5px ;
+  padding: 0;
+  padding-left: 20px;
+  line-height: 37px;
+  font-size: 18px;
+}
+#none_httptitle_nav #addtitle:hover{
+    background-color: #4280ee;
+    color: white;
+}
+#none_httptitle_nav .httptitle:hover{
+    background-color: #4280ee;
+    color: white;
+}
+
+
+/*顶部搜索框下方隐藏菜单样式*/
+
+#none_search_nav a{
+    /*color: #000;*/
+    color: #8a8a8a;
+    display: inline-block;
+    background-color: #fff;
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+#none_search_nav a:hover{
+    /*background-color: #38aae1;*/
+    background-color: #4280ee;
+}
+
+
+/************************隐藏网址编辑框样式***********************************************/
+#none_httpedit{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    z-index: 1000;
+    color:black;
+    background-color: #ffffff;
+    height:390px;
+    width: 450px;
+    padding: 40px;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-top: 20px;
+
+    /*使固定定位元素居中*/
+    position: fixed;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+#none_httpedit input{
+    display: inline-block;
+    margin-left: 10px;
+    width: 280px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1.5px solid #ccc;
+    border-radius: 4px;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+/*修改按钮的样式*/
+#none_btn_xiugai{
+    display: block;
+    margin: 0 auto;
+}
+/*右上角关闭按钮的样式*/
+#none_edit_close{
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+
+/*分类下拉框样式*/
+#input_type_fsl{
+    /*float: left;*/
+    height: 35px;
+    width: 120px;
+    margin-top: 10px;
+    box-shadow: 0 0 5px #ccc;
+    margin-left: 10px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    /*font-weight: bold;*/
+    font-size: 18px;
+    border: 1.5px solid #ccc;
+}
+#input_type_fsl option{
+
+    /*font-weight: bold;*/
+    background-color: #ffffff;
+    font-size: 18px;
+}
+/*************************隐藏的导出数据弹框*******************************/
+#none_output{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    color:black;
+    background-color: #ffffff;
+    height:480px;
+    width: 480px;
+    z-index: 1000;
+    border-radius: 8px;
+    margin-top: 20px;
+    /*使固定定位元素居中*/
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#output_title{/*标题样式*/
+    text-align: center;font-weight: bold;font-size: 18px;
+    margin-top: 15px;
+}
+#output_data{/*文本框样式*/
+
+    border: 1px solid #5a5a5a;
+    color: #333333;
+    font-size: 16px;
+    background-color: #F5FFFA ;
+    display: block;
+    resize: none;
+    border-radius: 4px;
+}
+#output_close{ /*右上角关闭按钮的样式*/
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+
+/*************************隐藏的导入数据弹框*******************************/
+#none_input{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    color:black;
+    background-color: #ffffff;
+    height:480px;
+    width: 480px;
+    z-index: 1000;
+    border-radius: 8px;
+    margin-top: 20px;
+    /*使固定定位元素居中*/
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    padding-left: 20px;
+}
+#input_title{/*标题样式*/
+    text-align: center;font-weight: bold;font-size: 18px;
+    margin-top: 15px;
+}
+#input_data{/*文本框样式*/
+
+    border: 1px solid #5a5a5a;
+    color: #333333;
+    font-size: 16px;
+    background-color: #F5FFFA ;
+    display: block;
+    resize: none;
+    border-radius: 4px;
+}
+#input_close{ /*右上角关闭按钮的样式*/
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+#quereninput{ /*确认导入按钮样式 */
+    display: block;
+    margin: 0 auto;
+    margin-top:16px;
+}
+
+/*************************隐藏的设置背景弹框*******************************/
+#none_setbg{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    color:black;
+    background-color: #ffffff;
+    height:440px;
+    width: 720px;
+    z-index: 1000;
+    border-radius: 8px;
+    margin-top: 20px;
+    /*使固定定位元素居中*/
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    padding-left: 20px;
+}
+#setbg_title{/*标题样式*/
+    text-align: center;font-weight: bold;font-size: 18px;
+    margin-top: 15px;
+}
+.min_imgbg{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.min_imgbg:hover{
+    box-shadow: 0 0 10px 0 rgba(6, 236, 64, 0.636);
+}
+.min_imgbg_select{
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 1px solid blue;
+    padding: 2px;
+}
+#setbg_close{ /*右上角关闭按钮的样式*/
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+#querensetbg{ /*确认切换背景按钮样式 */
+     width: 50px;height: 25px; 
+     padding: 0px 0px;
+     font-size: 15px;
+     line-height: 22px;
+    position: absolute;top: 15px;left: 22px;
+}
+#bgimg_box{
+    margin-top: 10px;
+    width: 680px;
+    height: 350px;
+    border-top: #000 1px solid;
+}
+/********************************隐藏的翻译弹框-->*********************************/
+#none_trans{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    color:black;
+    background-color: #ffffff;
+    height:480px;
+    width: 480px;
+    z-index: 1000;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-top: 20px;
+    /*使固定定位元素居中*/
+    position: fixed;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+#trans_title{/*翻译框标题样式*/
+    text-align: center;font-weight: bold;font-size: 18px;
+    margin-top: 15px;
+}
+#trans_from{/*翻译前文本框样式*/
+    width: 450px;
+    height: 200px;
+    border: 1px solid #5a5a5a;
+    color: #333333;
+    font-size: 16px;
+    background-color: #F5FFFA ;
+    display: block;
+    margin-left: 15px;
+    margin-top: 5px;
+    resize: none;
+    border-radius: 4px;
+}
+
+#trans_to{/*翻译后文本框样式*/
+    width: 450px;
+    height: 200px;
+    margin-left: 15px;
+    /*margin-top: 5px;*/
+    border: 1px solid #5a5a5a;
+    color: #333333;
+    font-size: 16px;
+    resize: none;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+#trans_close{ /*右上角关闭按钮的样式*/
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+
+
+/*************************点击天气详情按钮后响应此弹框**********************************/
+#none_tianqixiangqing{
+    color:black;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    height:480px;
+    width: 540px;
+    z-index: 1000;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-top: 20px;
+    /*使固定定位元素居中*/
+    position: fixed;
+    position:fixed;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+#tianqixiangqing_title{/*翻译框标题样式*/
+    text-align: center;font-weight: bold;font-size: 18px;
+    margin-top: 15px;
+}
+#tianqixiangqing_close{/*右上角关闭按钮的样式*/
+    width: 20px;height: 20px;position: absolute;top: 15px;right: 15px;
+}
+#tianqixiangqing_table{
+  width: 500px;
+  height: 410px;
+    background-color: #e8f2ff;
+    margin-left: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+
+}
+#tianqixiangqing_table td,#tianqixiangqing_table th{
+    line-height: 50px;
+    padding: 0px;
+    /*border: red 1px solid;*/
+    text-align: center;
+    /*background-color: red;*/
+}
+
+
+/*右键超链接菜单样式*/
+#none_menu_a{
+    width:100px;z-index:100;
+    right: 410px;
+    top:53px;
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    position: fixed;/*//事件点击位置判断是根据窗口固定距离，所以右键菜单也应该是固定定位*/
+    display: none;
+}
+#none_menu_a a{
+    color: black;
+    display: inline-block;
+    background-color: #fff;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px black;
+}
+
+#none_menu_a a:hover{
+
+    background-color: #38aae1;
+
+}
+
+/*右键分类菜单样式*/
+#none_menu_fenlei{
+    box-shadow: 0 0 10px 0 rgba(113,113,113,.5);
+    width:100px;right: 410px;top:53px;
+    position: fixed;/*//事件点击位置判断是根据窗口固定距离，所以右键菜单也应该是固定定位*/
+    display: none;
+    z-index:100;
+}
+#none_menu_fenlei a{
+    color: black;
+    display: inline-block;
+    background-color: #fff;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px black;
+}
+
+#none_menu_fenlei a:hover{
+
+    background-color: #38aae1;
+
+}
+#none_btn_showaddwindow{
+
+    border-radius: 40px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    /*color: #1ece6d;*/
+    display: inline-block;
+    transition: all .3s ease;
+    width: 90px;
+    height: 90px;
+}
+#none_btn_showaddwindow:hover{
+    transform: scale(1.1);
+}
+
+/*阴影样式*/
+#window_bg{
+    z-index: 800;
+    opacity: 0.5;background-color: #000;position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

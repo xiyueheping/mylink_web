@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+/* 设置默认样式   */
+*{
+  margin:0px;
+  padding: 0px;
+}
+a:hover{
+  text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+
+
+
+/*窗口宽度小于1500px时*/
+@media only screen and (max-width: 1500px) {
+    #content a{
+        position: relative;
+       display: block;
+       margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        /* border: yellow 1px solid; */
+        width: 125px;
+        height: 125px;
+        padding-top: 15px;
+    }
+    .httpimg{
+        /* border: red 1px solid; */
+        border-radius: 15px;
+        width: 90px;
+        height: 90px;
+    }
+    /*图片加载不出来的代替样式*/
+    .httpimg2{
+        /* border: red 1px solid; */
+        display: inline-block;
+        border-radius: 15px;
+        width: 90px;
+        height: 90px;
+        font-size: 45px;
+        font-weight: 500;
+        line-height: 90px;
+        font-family: 华文楷体;
+        color: #ffffff;
+        background-color: #3981ff;
+    }
+    
+  
+  }
+/*窗口宽度小于1700px大于1500px时*/
+@media only screen and (max-width: 1700px) and  (min-width: 1500px){
+   
+    #content a{
+        position: relative;
+       display: block;
+       margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        /* border: yellow 1px solid; */
+        width: 135px;
+        height: 135px;
+        padding-top: 15px;
+    }
+    .httpimg{
+        /* border: red 1px solid; */
+        border-radius: 15px;
+        width: 100px;
+        height: 100px;
+    }
+    /*图片加载不出来的代替样式*/
+    .httpimg2{
+        /* border: red 1px solid; */
+        display: inline-block;
+        border-radius: 15px;
+        width: 100px;
+        height: 100px;
+        font-size: 45px;
+        font-weight: 500;
+        line-height: 100px;
+        font-family: 华文楷体;
+        color: #ffffff;
+        background-color: #3981ff;
+    }
+    
+  
+}
+/*窗口宽度大于1700px时*/
+@media only screen and (min-width: 1700px) {
+    #content a{
+        position: relative;
+       display: block;
+       margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+        /* border: yellow 1px solid; */
+        width: 145px;
+        height: 145px;
+        padding-top: 15px;
+    }
+    .httpimg{
+        /* border: red 1px solid; */
+        border-radius: 15px;
+        width: 110px;
+        height: 110px;
+    }
+    /*图片加载不出来的代替样式*/
+    .httpimg2{
+        /* border: red 1px solid; */
+        display: inline-block;
+        border-radius: 15px;
+        width: 110px;
+        height: 110px;
+        font-size: 45px;
+        font-weight: 500;
+        line-height: 110px;
+        font-family: 华文楷体;
+        color: #ffffff;
+        background-color: #3981ff;
+    }
+    
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************主体内容框中的表格样式***********************/
+.httpname{
+    color: #ffffff;
+    font-weight: bold;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+}
+
+#content a:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+
+.http_del{
+    width: 20px;height: 20px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+.http_del:hover{
+
+    width: 24px;height: 24px;
+    top: 0px;
+    right: 0px;
+}
+
+

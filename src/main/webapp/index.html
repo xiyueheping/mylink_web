@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@mylink@</title>
+<!--<link href="/favicon.ico" rel="shortcut icon">-->
+<link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="src/css/buju.css">
+<link rel="stylesheet" type="text/css" href="src/css/index.css">
+<link rel="stylesheet" type="text/css" href="src/css/top.css">
+<link rel="stylesheet" type="text/css" href="src/css/foot.css">
+<link rel="stylesheet" type="text/css" href="src/css/none.css">
+
+</head>
+<body>
+<div id="box">
+
+    <!-- -------------------------------雪花特效-------------------------- -->
+    <canvas id="snowFallLeft" class="snowFall snowFallLeft" height="500" ></canvas>
+    <canvas id="snowFallTop" class="snowFall snowFallTop" width="1220" height="500" style="display: none;
+margin:0 auto;"  ></canvas>
+    <canvas id="snowFallRight" class="snowFall snowFallRight"  height="500" ></canvas>
+
+    <!-- **************************** 顶部导航栏中的所有信息 *************************************** -->
+    <div id="top">
+        <form id="top_form" action="https://www.baidu.com/s" target="_blank">
+            <input id="top_from_search" autocomplete="off" class="form-control" autofocus="autofocus"  placeholder="输入关键词" type="text" onFocus="this.select()" name="wd">
+            <input type="submit" id="top_from_button"  value="">
+        </form>
+
+        <div class="top_title" id="top_date"></div>
+        <div class="top_title" id="top_week"></div>
+        <div class="top_title" id="top_translate">翻译</div>
+        <div class="top_title" id="top_city"></div>
+        <div class="top_title" id="top_weather"></div>
+        <div class="top_title" id="top_xiangqing"></div>
+        <div id="top_shezhi" >扩展功能</div>
+    </div>
+
+    <!-- ***********************主体内容框**************************-->
+    <div id="content_box">
+        <table id="content">
+        </table>
+    </div>
+
+    <img id="none_btn_showaddwindow" src="src/images/img_addhttp.png" style="">
+    <!-- ************************底部相对位置的添加网址文本框***********************************/ -->
+    <div id="foot">
+        <input style="background:transparent;" autocomplete="off" id="foot_input_name" class="form-control"  name="keyword" type="text" placeholder="输入名称:"  onFocus="this.select()">
+        <input style="background:transparent;" autocomplete="off" id="foot_input_href" class="form-control"  name="keyword" type="text" placeholder="https://" onFocus="this.select()">
+        <select id="foot_fenlei">
+        </select>
+        <button  id="foot_addhttp" >保存</button>
+    </div>
+
+    <!-- 切换搜索引擎的菜单 -->
+    <div id="none_search_nav" >
+        <a id="abd">百度搜索</a>
+        <a id="asg">搜狗搜索</a>
+        <a id="agg">谷歌搜索</a>
+        <a id="aby">必应搜索</a>
+    </div>
+</div>
+
+
+
+<!--********************************** 隐藏的页面元素 ****************************************-->
+<!-- 右侧滑动菜单 -->
+<div id="rightmenu">
+        <span></span>
+        <img id="close_rightmenu" width="28" height="28" src="./src/images/menu_close.png" style="margin-left: 143px;" />
+        <a id="btn_bgimage" style="width: 150px;">背景主题</a>
+        <a id="btn_inputdata" style="width: 150px;">导入数据</a>
+        <a id="btn_outputdata" style="width: 150px;">导出数据</a>
+   </div>
+
+<!--左上角网址分类标题菜单-->
+<ul id="none_httptitle_nav">
+</ul>
+
+<!-- 鼠标右键点击网址链接自定义菜单 -->
+  <div id="none_menu_a" >
+    <a id="youjian_http_edit" >编辑</a>
+    <a id="youjian_http_del" >删除</a>
+    <a id="youjian_http_top_move" >上移</a>
+    <a id="youjian_http_bottom_move" >下移</a>
+  </div>
+
+  <!-- 鼠标右键点击分类自定义菜单 -->
+  <div id="none_menu_fenlei" >
+    <a id="none_edittitle" >编辑标题</a>
+    <a id="none_deltitle" >删除标题</a>
+    <a id="none_upmovetitle" >上移标题</a>
+    <a id="none_downmovetitle" >下移标题</a>
+  </div>
+
+  <!-- 点击编辑网址后显示此编辑框 -->
+<form id="none_httpedit" style="display: none;">
+       <div id="" style="text-align: center;font-weight: bold;/*color: red;*/font-size: 18px;">  编辑网址信息</div>
+       <div style="margin-top:25px;">
+         &nbsp;&nbsp;&nbsp;&nbsp;名称：<input id="input_name_fsl" placeholder="输入名称:(3-8)" onFocus="  this.select()" autocomplete="off" type="text" name="">
+       </div>
+       <div  style="margin-top:25px;">
+         &nbsp;&nbsp;&nbsp;&nbsp;地址：<input id="input_href_fsl" placeholder="http://" onFocus="  this.select()" autocomplete="off" type="text" name="">
+       </div>
+       <div style="margin-top:25px;">
+         &nbsp;&nbsp;&nbsp;&nbsp;分类：<select id="input_type_fsl"></select></div>
+
+       <div style="margin-top:35px;">
+        <button class="btn btn-primary" onclick="return m_event.http_querenxiugai()" id="none_btn_xiugai">确认修改</button>
+       </div>
+       <img id="none_edit_close" onclick="http_edit_close()"  src="src/images/edit_close.png" >
+   </form>
+
+
+<!--点击翻译按钮后响应此弹框-->
+<form id="none_trans" style="display: none;">
+    <div id="trans_title" >翻译</div>
+    <textarea id="trans_from" name="word"  placeholder="输入待翻译文本"></textarea>
+    <textarea id="trans_to" name="word"  style=""></textarea>
+    <img id="trans_close"   src="src/images/edit_close.png" >
+</form>
+
+<!--点击导出数据按钮后响应此弹框-->
+<form id="none_output" style="display: none;">
+        <div id="output_title" >导出数据</div>
+        <textarea id="output_data" name="word" onFocus="this.select()" style="margin: 0px;width: 440px;height: 406px;" ></textarea>
+        <img id="output_close"   src="src/images/edit_close.png" >
+</form>
+
+<!--点击导入数据按钮后响应此弹框-->
+<form id="none_input" style="display: none;">
+        <div id="input_title" >导入数据</div>
+        <textarea id="input_data" name="word"  style="margin: 0px;width: 440px;height: 370px;"  placeholder="导入新数据后原有数据将被覆盖"></textarea>
+        <img id="input_close"   src="src/images/edit_close.png" >
+        <button class="btn btn-primary"  id="quereninput">确认导入</button>
+</form>
+<!--点击主题背景按钮后响应此弹框-->
+<form id="none_setbg" style="display: none;">
+    <div id="setbg_title" >主题背景</div>
+    <img id="setbg_close"   src="src/images/edit_close.png" >
+    <button class="btn btn-primary"  id="querensetbg">save</button>
+    <div id="bgimg_box">
+        <img class="min_imgbg" onclick="m_event.clkimg(0)" width="160" height="100" src="./src/images/minbg/1.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(1)" width="160" height="100" src="./src/images/minbg/2.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(2)" width="160" height="100" src="./src/images/minbg/3.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(3)" width="160" height="100" src="./src/images/minbg/4.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(4)" width="160" height="100" src="./src/images/minbg/5.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(5)" width="160" height="100" src="./src/images/minbg/6.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(6)" width="160" height="100" src="./src/images/minbg/7.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(7)" width="160" height="100" src="./src/images/minbg/8.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(8)" width="160" height="100" src="./src/images/minbg/9.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(9)" width="160" height="100" src="./src/images/minbg/10.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(10)" width="160" height="100" src="./src/images/minbg/11.jpg" />
+        <img class="min_imgbg" onclick="m_event.clkimg(11)" width="160" height="100" src="./src/images/minbg/12.jpg" />
+    </div>
+</form>
+<!--点击天气详情按钮后响应此弹框-->
+<form id="none_tianqixiangqing" style="display: none;">
+    <div id="tianqixiangqing_title" >天气详情</div>
+    <table id="tianqixiangqing_table" class="table">
+        <thead>
+          <tr>
+            <th>日期</th><th>天气</th><th>温度</th><th>风向</th><th>风速</th>
+          </tr>
+        </thead>
+        <tr>
+            <td class="date"></td>
+            <td class="weather"></td>
+            <td class="wendu"></td>
+            <td class="fengxiang"></td>
+            <td class="fengli"></td>
+        </tr>
+        <tr>
+            <td class="date"></td>
+            <td class="weather"></td>
+            <td class="wendu"></td>
+            <td class="fengxiang"></td>
+            <td class="fengli"></td>
+        </tr>
+        <tr>
+            <td class="date"></td>
+            <td class="weather"></td>
+            <td class="wendu"></td>
+            <td class="fengxiang"></td>
+            <td class="fengli"></td>
+        </tr>
+        <tr>
+            <td class="date"></td>
+            <td class="weather"></td>
+            <td class="wendu"></td>
+            <td class="fengxiang"></td>
+            <td class="fengli"></td>
+        </tr>
+        <tr>
+            <td class="date"></td>
+            <td class="weather"></td>
+            <td class="wendu"></td>
+            <td class="fengxiang"></td>
+            <td class="fengli"></td>
+        </tr>
+        <tr>
+            <td class="date">
+            </td>
+            <td class="weather">
+            </td>
+            <td class="wendu">
+            </td>
+            <td class="fengxiang">
+            </td>
+            <td class="fengli">
+            </td>
+        </tr>
+        <tr>
+            <td class="date">
+            </td>
+            <td class="weather">
+            </td>
+            <td class="wendu">
+            </td>
+            <td class="fengxiang">
+            </td>
+            <td class="fengli">
+            </td>
+        </tr>
+    </table>
+    <img id="tianqixiangqing_close"   src="src/images/edit_close.png" >
+</form>
+
+<div id="window_bg" style="display: none"></div>
+</body>
+
+<script src="src/js/jquery.js"></script>
+<script>
+    
+</script>
+<script  src ="src/js/output.js"></script>
+</html>

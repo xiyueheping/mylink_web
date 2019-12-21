@@ -1,0 +1,184 @@
+/*
+  body:  最外层的body标签   与浏览器窗口尺寸相同  相对定位  只用于背景图片不参与布局
+
+  #box:  最外层容器，包含了顶部导航栏与网址内容框    宽度随实际窗口变化  相对定位 居中   
+
+  #top:  最上方顶部导航栏    宽度随实际窗口变化 高度60                相对定位
+
+  #content: 主体网址内容框   宽度1000px 居中 高度500px  默认定位
+  #foot:  底部菜单栏    宽度1300px 高度 55px 相对定位
+*/
+
+/**
+  最外层的body标签 只用于背景图片不参与布局
+ */
+ body{
+  
+  position: relative;
+  background-size:100% 100%;
+  overflow: hidden;
+  color: #333333;
+}
+
+
+/*窗口宽度小于1500px时*/
+@media only screen and (max-width: 1500px) {
+  /*最外层容器*/
+  #box{
+    /* background: #5175eb; */
+    /* border: 1px solid yellow; */
+    position: relative;
+    width: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+   }
+
+  /*最上方导航栏布局*/
+  #top{
+    /* border: 1px solid blue; */
+    position: relative;
+    margin-top: 5px;
+    width: 1300px;
+    height: 60px;
+    color: #ffffff;
+   }
+  /**
+   主体内容框的布局
+ */
+#content_box{
+  /* border: 1px solid orange; */
+    width: 1030px;height: 540px;
+    margin: 0 auto;
+}
+/*网址表格*/
+#content{
+  /* border: 1px solid pink; */
+    margin: 0 auto;
+    width: 1000px;
+    height: 510px;
+    margin-bottom: 60px;
+    color:#ffffff;
+}
+#content td{
+    /* border: #00ec00 1px solid; */
+    width: 200px;
+    height: 170px;
+}
+
+}
+/*窗口宽度小于1700px大于1500px时*/
+@media only screen and (max-width: 1700px) and  (min-width: 1500px){
+  /*最外层容器*/
+  #box{
+    /* background: #5175eb; */
+    /* border: 1px solid yellow; */
+    position: relative;
+    width: 1450px;
+    margin: 0 auto;
+    overflow: hidden;
+   }
+  /*最上方导航栏布局*/
+  #top{
+    /* border: 1px solid blue; */
+    position: relative;
+    margin-top: 5px;
+    width: 1450px;
+    height: 60px;
+    color: #ffffff;
+   }
+   /**
+   主体内容框的布局
+ */
+#content_box{
+  /* border: 1px solid orange; */
+  padding-top: 20px;
+    width: 1180px;height: 600px;
+    margin: 0 auto;
+}
+/*网址表格*/
+#content{
+  /* border: 1px solid red; */
+    margin: 0 auto;
+    width: 1140px;
+    height: 555px;
+    margin-bottom: 60px;
+    color:#ffffff;
+}
+#content td{
+    /* border: #00ec00 1px solid; */
+    width: 228px;
+    height: 185px;
+}
+
+
+}
+/*窗口宽度大于1700px时*/
+@media only screen and (min-width: 1700px) {
+  /*最外层容器*/
+  #box{
+    /* border: 1px solid yellow; */
+    position: relative;
+    width: 1650px;
+    margin: 0 auto;
+    overflow: hidden;
+    }
+  /*最上方导航栏布局*/
+  #top{
+    /* border: 1px solid blue; */
+    position: relative;
+    margin-top: 5px;
+    width: 1650px;
+    height: 60px;
+    color: #ffffff;
+   }
+     /**
+   主体内容框的布局
+     */
+     #content_box{
+       /* border: 1px solid orange; */
+       padding-top: 20px;
+         width: 1400px;height: 650px;
+         margin: 0 auto;
+     }
+     /*网址表格*/
+     #content{
+       /* border: 1px solid red; */
+         margin: 0 auto;
+         width: 1350px;
+         height: 600px;
+         margin-bottom: 60px;
+         color:#ffffff;
+     }
+     #content td{
+         /* border: #00ec00 1px solid; */
+         width: 270px;
+         height: 200px;
+     }
+
+}
+
+
+
+/**
+   底部菜单栏布局
+ */
+#foot{
+    width: 800px;
+    height: 70px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
+    margin: 0 auto;
+    display: none;
+    color: #333333;
+}
+
+/**
+   左上角网址标题菜单布局
+ */
+#none_httptitle_nav{
+    position: fixed;
+    top: 10px;
+    left: 40px;
+}
