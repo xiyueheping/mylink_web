@@ -145,6 +145,9 @@ var module_event = function() {
         //点击导入数据按钮响应事件
         document.getElementById('btn_inputdata').onclick = m_data.openinputwindow;
         
+        //点击退出登录按钮响应函数
+        document.getElementById('btn_logout').onclick = m_shezhi.logout;
+
         //点击确认导入按钮响应事件
         document.getElementById('quereninput').onclick = m_data.doinputdata;
 

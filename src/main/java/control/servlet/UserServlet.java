@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -65,6 +66,7 @@ public class UserServlet extends BaseServlet {
         String json = mapper.writeValueAsString(map);
         resp.getWriter().write(json); //响应登录信息
     }
+
     //响应登录请求
     public void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         req.setCharacterEncoding("utf-8");
@@ -105,6 +107,44 @@ public class UserServlet extends BaseServlet {
         String json = mapper.writeValueAsString(map);
         System.out.println(json);
         resp.getWriter().write(json); //响应登录信息
+    }
+    //退出登录请求
+    public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        //响应消息编码方式
+        resp.setCharacterEncoding("utf-8");
+        //告诉浏览器使用何种方式解码响应数据
+        resp.setHeader("content-type","application/json;charset=utf-8");
+        //封装响应信息的map对象
+        HashMap<String,String> map = new HashMap<>();
+
+        System.out.println("接收到logout请求");
+        //从cookie中获取username
+        String username1 = null;
+        Cookie[] cookies =  req.getCookies();
+        if(cookies != null){
+            for(Cookie cookie : cookies){
+                if("username".equals(cookie.getName())){
+                    username1 = cookie.getValue();
+                }
+            }
+        }
+        //从session中获取username
+        String username2 = (String) req.getSession().getAttribute("username");
+        if(username1 == null || username2 == null){
+            resp.getWriter().write("{\"msg\":\"登录态验证失败\"}");
+            return;
+        }
+        if(!username1.equals(username2)){
+            resp.getWriter().write("{\"msg\":\"登录态验证失败\"}");
+            return;
+        }
+        //销毁当前session对象
+        else{
+            req.getSession().invalidate();
+            resp.getWriter().write("{\"msg\":\"退出登录成功\"}");
+            return;
+        }
     }
     //获取用户网址数据
     public void getdata(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

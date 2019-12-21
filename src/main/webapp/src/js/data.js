@@ -33,7 +33,7 @@ var module_data = function() {
                 success:function(response,stutas,xhr){//响应成功后执行的回调函数
                        console.log(response);
                        if(response.msg == "登录态验证失败"){
-                           document.write("<h3><a href='./login.html'>请先登录</a></h3>");
+                           document.write("<h3><a href='./login.html'>暂未登录，请先登录</a></h3>");
                            return false;
                        }
                        var obj = JSON.parse(response.userdata);

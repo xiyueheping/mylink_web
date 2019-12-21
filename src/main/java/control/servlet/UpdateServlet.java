@@ -43,9 +43,11 @@ public class UpdateServlet extends BaseServlet {
         String username2 = (String) req.getSession().getAttribute("username");
         if(username1 == null || username2 == null){
             resp.getWriter().write("{\"msg\":\"登录态验证失败\"}");
+            return;
         }
         if(!username1.equals(username2)){
             resp.getWriter().write("{\"msg\":\"登录态验证失败\"}");
+            return;
         }
         //调用业务层功能更新userdata
         String userdata = req.getParameter("userdata");
